@@ -1,5 +1,5 @@
 import { buttonVariants } from "@/components/ui/button";
-import { siteConfig } from "@/config/site";
+
 import { SOCIALS } from "@/constants";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
@@ -28,7 +28,7 @@ export default function Home() {
               target="_blank"
               className={cn(
                 buttonVariants({ variant: "ghost" }),
-                "text-primary px-0 hover:bg-primary transition-colors rounded-full p-2 size-8 bg-primary/80"
+                "size-8 rounded-full p-2 px-0 text-primary transition-colors hover:bg-primary bg-primary/80"
               )}
             >
               <social.icon className="size-6" />

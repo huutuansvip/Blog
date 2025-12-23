@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Lexend, Playfair_Display } from "next/font/google";
+import { Lexend, Playfair_Display as PlayfairDisplay } from "next/font/google";
 import "@/styles/globals.css";
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import App from "@/components/app";
 
 const lexend = Lexend({ subsets: ["latin"], variable: "--font-lexend" });
-const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
+const playfair = PlayfairDisplay({ subsets: ["latin"], variable: "--font-playfair" });
 
 export const metadata: Metadata = {
   title: {
