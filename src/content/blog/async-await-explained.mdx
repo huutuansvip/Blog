@@ -1,0 +1,36 @@
+---
+title: "Tìm hiểu về Async/Await trong JavaScript"
+description: "Học cách viết code bất đồng bộ trông giống và hoạt động như code đồng bộ bằng cách sử dụng async/await."
+image: "/images/blog/derive-decouple.webp"
+date: "2024-06-02"
+author: "Nguyen Hoang Huu Tuan"
+---
+
+# Tìm hiểu về Async/Await trong JavaScript
+
+`async` và `await` là các phần mở rộng cho Promises trong JavaScript, được giới thiệu trong ES2017. Chúng làm cho việc làm việc với code bất đồng bộ trở nên gọn gàng và dễ hiểu hơn nhiều, tránh được "địa ngục callback" (callback hell) hoặc các chuỗi Promise phức tạp.
+
+## Từ khóa Async
+
+Đặt `async` phía trước một khai báo hàm sẽ biến nó thành một hàm bất đồng bộ (async function). Một hàm async biết cách chờ từ khóa `await` bên trong nó để thực thi code bất đồng bộ.
+
+```javascript
+async function hello() {
+  return "Hello";
+}
+hello().then(console.log); // "Hello"
+```
+
+## Từ khóa Await
+
+Từ khóa `await` được sử dụng bên trong một hàm `async` để chờ một Promise. Nó làm cho việc thực thi hàm async tạm dừng cho đến khi Promise được giải quyết (resolved).
+
+```javascript
+async function fetchUser() {
+  const response = await fetch('/api/user');
+  const body = await response.json();
+  return body;
+}
+```
+
+Mô hình này làm cho code bất đồng bộ đọc rất giống code đồng bộ, đây là một điểm cộng lớn cho khả năng đọc hiểu code.

@@ -24,6 +24,7 @@ const config = {
       fontFamily: {
         lexend: ["var(--font-lexend)", ...fontFamily.sans],
         code: ["var(--font-code)", ...fontFamily.sans],
+        playfair: ["var(--font-playfair)", ...fontFamily.serif],
       },
       colors: {
         border: "hsl(var(--border))",

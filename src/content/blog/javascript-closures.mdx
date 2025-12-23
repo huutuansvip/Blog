@@ -1,0 +1,35 @@
+---
+title: "Giới thiệu về Closure trong JavaScript"
+description: "Hiểu khái niệm closure trong JavaScript và cách chúng được sử dụng để quản lý phạm vi và bảo mật dữ liệu."
+image: "/images/blog/any-considered.webp"
+date: "2024-06-01"
+author: "Nguyen Hoang Huu Tuan"
+---
+
+# Giới thiệu về Closure trong JavaScript
+
+Closure là một khái niệm cơ bản trong JavaScript thường gây nhầm lẫn cho người mới bắt đầu. Một closure là sự kết hợp của một hàm đi kèm (được bao bọc) với các tham chiếu đến trạng thái xung quanh nó (môi trường ngữ pháp - lexical environment). Nói cách khác, closure cho phép bạn truy cập vào phạm vi của hàm bên ngoài từ một hàm bên trong. Trong JavaScript, closure được tạo ra mỗi khi một hàm được tạo, tại thời điểm tạo hàm.
+
+## Cách Closure hoạt động
+
+Để hiểu về closure, trước tiên chúng ta cần hiểu về lexical scoping (phạm vi ngữ pháp).
+
+```javascript
+function init() {
+  var name = 'Mozilla'; // name là biến cục bộ được tạo bởi init
+  function displayName() { // displayName() là hàm bên trong, một closure
+    alert(name); // sử dụng biến được khai báo trong hàm cha
+  }
+  displayName();
+}
+init();
+```
+
+## Các trường hợp sử dụng thực tế
+
+Closure rất hữu ích vì chúng cho phép bạn liên kết một số dữ liệu (môi trường ngữ pháp) với một hàm hoạt động trên dữ liệu đó. Điều này có những điểm tương đồng rõ ràng với lập trình hướng đối tượng, nơi các đối tượng cho phép chúng ta liên kết một số dữ liệu (các thuộc tính của đối tượng) với một hoặc nhiều phương thức.
+
+Các ứng dụng phổ biến bao gồm:
+- Bảo mật dữ liệu / mô phỏng các phương thức riêng tư (private methods)
+- Các trình xử lý sự kiện (Event handlers)
+- Các mẫu lập trình hàm (như currying)

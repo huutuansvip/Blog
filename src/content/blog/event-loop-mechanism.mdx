@@ -1,0 +1,38 @@
+---
+title: "Cơ chế Event Loop trong JavaScript"
+description: "Đi sâu vào cách JavaScript xử lý các tác vụ bất đồng bộ sử dụng Event Loop, Call Stack và Task Queues."
+image: "/images/blog/how-to-type-env.webp"
+date: "2024-06-04"
+author: "Nguyen Hoang Huu Tuan"
+---
+
+# Cơ chế Event Loop trong JavaScript
+
+JavaScript là đơn luồng (single-threaded), nghĩa là nó chỉ có thể làm một việc tại một thời điểm. Tuy nhiên, nó xử lý các tác vụ bất đồng bộ (như các yêu cầu mạng hoặc bộ đếm thời gian) một cách hiệu quả nhờ sử dụng **Event Loop**.
+
+## Call Stack (Ngăn xếp gọi hàm)
+
+Call stack là nơi JavaScript engine theo dõi vị trí code đang thực thi. Khi bạn chạy một hàm, nó được đẩy vào (push) ngăn xếp. Khi nó trả về, nó được lấy ra (pop) khỏi ngăn xếp.
+
+## Web APIs
+
+Khi bạn gọi `setTimeout` hoặc `fetch`, trình duyệt chuyển giao các tác vụ này cho Web APIs, chạy tách biệt với luồng chính của JS.
+
+## Callback Queue & Event Loop
+
+Khi một tác vụ bất đồng bộ hoàn tất, callback của nó được đẩy vào Callback Queue (Hàng đợi Callback). Công việc của Event Loop rất đơn giản: nó liên tục kiểm tra xem Call Stack có trống không. Nếu trống, và có các tác vụ trong Callback Queue, nó sẽ đẩy tác vụ đầu tiên từ hàng đợi vào ngăn xếp.
+
+```javascript
+console.log('Start');
+
+setTimeout(() => {
+  console.log('Timeout');
+}, 0);
+
+console.log('End');
+```
+
+Kết quả:
+1. Start
+2. End
+3. Timeout

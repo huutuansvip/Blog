@@ -1,0 +1,46 @@
+---
+title: "Higher-Order Functions trong JavaScript"
+description: "Làm chủ sức mạnh của lập trình hàm trong JavaScript với các hàm bậc cao như map, filter và reduce."
+image: "/images/blog/derive-decouple.webp"
+date: "2024-06-06"
+author: "Nguyen Hoang Huu Tuan"
+---
+
+# Higher-Order Functions trong JavaScript
+
+Một higher-order function (hàm bậc cao) là một hàm nhận một hoặc nhiều hàm khác làm tham số hoặc trả về một hàm như là kết quả của nó. Chúng là những khối xây dựng của lập trình hàm (functional programming) trong JS.
+
+## Các ví dụ phổ biến
+
+### map()
+
+Biến đổi một mảng bằng cách áp dụng một hàm cho mỗi phần tử.
+
+```javascript
+const numbers = [1, 2, 3];
+const doubled = numbers.map(x => x * 2); // [2, 4, 6]
+```
+
+### filter()
+
+Tạo ra một mảng mới với tất cả các phần tử vượt qua bài kiểm tra được thực hiện bởi hàm được cung cấp.
+
+```javascript
+const words = ['spray', 'limit', 'elite', 'exuberant'];
+const result = words.filter(word => word.length > 6);
+// ["exuberant"]
+```
+
+### reduce()
+
+Thực thi một hàm reducer trên mỗi phần tử của mảng, dẫn đến một giá trị đầu ra duy nhất.
+
+```javascript
+const array1 = [1, 2, 3, 4];
+const initialValue = 0;
+const sumWithInitial = array1.reduce(
+  (accumulator, currentValue) => accumulator + currentValue,
+  initialValue
+);
+// 10
+```

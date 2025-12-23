@@ -1,0 +1,43 @@
+---
+title: "Kế thừa theo nguyên mẫu trong JavaScript"
+description: "Khám phá cách kế thừa hoạt động trong JavaScript thông qua prototype và prototype chain."
+image: "/images/blog/any-considered.webp"
+date: "2024-06-05"
+author: "Nguyen Hoang Huu Tuan"
+---
+
+# Kế thừa theo nguyên mẫu (Prototypal Inheritance) trong JavaScript
+
+JavaScript sử dụng cơ chế kế thừa theo nguyên mẫu, khác với kế thừa cổ điển (classical inheritance) trong các ngôn ngữ như Java hay C++.
+
+## Chuỗi nguyên mẫu (The Prototype Chain)
+
+Mỗi đối tượng trong JavaScript có một thuộc tính riêng chứa một liên kết đến một đối tượng khác gọi là **prototype** (nguyên mẫu) của nó. Đối tượng prototype đó lại có prototype của riêng nó, và cứ thế cho đến khi đạt đến một đối tượng có prototype là `null`.
+
+```javascript
+const animal = {
+  eats: true
+};
+
+const rabbit = {
+  jumps: true
+};
+
+rabbit.__proto__ = animal; // thiết lập rabbit.[[Prototype]] = animal
+
+console.log(rabbit.eats); // true
+```
+
+Khi bạn cố gắng truy cập một thuộc tính `rabbit.eats`, nếu nó không được tìm thấy trong `rabbit`, JavaScript sẽ kiểm tra trong `rabbit.__proto__`.
+
+## Classes trong ES6
+
+ES6 đã giới thiệu cú pháp `class`, đa phần là "syntactic sugar" (cú pháp ngọt) bao bọc lấy cơ chế kế thừa theo nguyên mẫu, giúp các lập trình viên đến từ các ngôn ngữ khác dễ tiếp cận hơn.
+
+```javascript
+class Animal {
+  constructor(name) {
+    this.name = name;
+  }
+}
+```

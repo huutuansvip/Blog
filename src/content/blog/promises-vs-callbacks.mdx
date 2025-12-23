@@ -1,0 +1,41 @@
+---
+title: "JavaScript Promises so với Callbacks"
+description: "So sánh cách xử lý bất đồng bộ truyền thống bằng callback với Promises hiện đại."
+image: "/images/blog/extends.webp"
+date: "2024-06-07"
+author: "Nguyen Hoang Huu Tuan"
+---
+
+# JavaScript Promises so với Callbacks
+
+Việc xử lý các tác vụ bất đồng bộ đã phát triển đáng kể trong JavaScript.
+
+## Callbacks
+
+Cách truyền thống là sử dụng callbacks (hàm gọi lại).
+
+```javascript
+getData(function(a) {
+  getMoreData(a, function(b) {
+    getEvenMoreData(b, function(c) {
+      console.log(c);
+    });
+  });
+});
+```
+
+Điều này thường dẫn đến "Callback Hell" (Địa ngục Callback), làm cho code khó đọc và khó debug.
+
+## Promises
+
+Promises cung cấp một cách sạch sẽ hơn để xử lý các tác vụ async.
+
+```javascript
+getData()
+  .then(a => getMoreData(a))
+  .then(b => getEvenMoreData(b))
+  .then(c => console.log(c))
+  .catch(error => console.error(error));
+```
+
+Promises đại diện cho một giá trị có thể có sẵn ngay bây giờ, trong tương lai, hoặc không bao giờ. Chúng có ba trạng thái: pending (đang chờ), fulfilled (đã hoàn thành), và rejected (đã bị từ chối).

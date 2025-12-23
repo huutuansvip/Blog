@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Lexend } from "next/font/google";
+import { Lexend, Playfair_Display } from "next/font/google";
 import "@/styles/globals.css";
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import App from "@/components/app";
 
 const lexend = Lexend({ subsets: ["latin"], variable: "--font-lexend" });
+const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | Mdx Blog Template",
-    default: "Mdx Blog Template",
+    template: "%s | Home",
+    default: "Home",
   },
 };
 
@@ -32,6 +33,7 @@ export default function RootLayout({
           "min-h-screen antialiased font-lexend bg-background",
           lexend.variable,
           fontCode.variable,
+          playfair.variable,
         )}
       >
         <App>{children}</App>

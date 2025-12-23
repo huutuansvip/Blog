@@ -1,0 +1,36 @@
+---
+title: "Thao tác DOM với JavaScript"
+description: "Học cách tương tác với Document Object Model (DOM) để tạo các trang web động."
+image: "/images/blog/how-to-type-env.webp"
+date: "2024-06-08"
+author: "Nguyen Hoang Huu Tuan"
+---
+
+# Thao tác DOM với JavaScript
+
+DOM (Document Object Model) là một giao diện lập trình cho các tài liệu web. Nó đại diện cho trang web để các chương trình có thể thay đổi cấu trúc, phong cách và nội dung của tài liệu.
+
+## Chọn phần tử (Selecting Elements)
+
+```javascript
+const element = document.getElementById('my-id');
+const items = document.querySelectorAll('.my-class');
+```
+
+## Thay đổi nội dung (Modifying Content)
+
+```javascript
+element.textContent = 'Nội dung mới!';
+element.innerHTML = '<strong>Nội dung in đậm</strong>';
+```
+
+## Xử lý sự kiện (Handling Events)
+
+```javascript
+const button = document.querySelector('button');
+button.addEventListener('click', () => {
+  alert('Đã click vào nút!');
+});
+```
+
+Thao tác DOM là cốt lõi của việc làm cho các trang web trở nên tương tác mà không cần sử dụng các framework như React hay Vue.

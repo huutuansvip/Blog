@@ -18,8 +18,11 @@ export default function BlogPage() {
     <div className="container max-w-4xl py-6 lg:py-10">
       <PageHeader
         title="Blog"
-        description="A blog using velite. Posts are written in MDX"
+        description="Trang tổng hợp và chia sẻ tất cả bài viết về lập trình, công nghệ và chia sẻ kinh nghiệm của mình."
       />
+      <p className="mt-4 text-muted-foreground">
+        Hiện đang có <span className="font-bold text-primary">{blogs.length}</span> bài viết
+      </p>
       <hr className="my-8" />
 
       {blogs.length ? (

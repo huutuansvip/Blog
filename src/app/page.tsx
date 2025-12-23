@@ -3,12 +3,23 @@ import { siteConfig } from "@/config/site";
 import { SOCIALS } from "@/constants";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Home() {
   return (
-    <section className="space-y-6 pb-8 md:pb-12 md:pt-10 lg:py-32">
-      <div className="container mt-6 flex max-w-5xl flex-col items-center gap-4 text-center xl:mt-0">
-        <div className="flex items-center space-x-2">
+    <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10 lg:grid-cols-2 lg:gap-10">
+      <div className="flex flex-col items-start gap-4">
+        <h1 className="text-3xl font-extrabold leading-tight tracking-tighter md:text-5xl lg:text-6xl text-center lg:text-left w-full">
+          WELLCOME
+        </h1>
+        <div className="w-full text-center lg:text-left space-y-2">
+
+          <div className="text-3xl md:text-5xl lg:text-7xl font-playfair leading-tight tracking-wide text-center lg:text-left">
+            <span className="block font-medium italic text-muted-foreground/80">Work hard in silence</span>
+            <span className="block font-bold mt-2 text-foreground">Let success make noise</span>
+          </div>
+        </div>
+        <div className="flex items-center space-x-2 w-full justify-center lg:justify-start">
           {SOCIALS.map((social) => (
             <Link
               key={social.label}
@@ -17,7 +28,7 @@ export default function Home() {
               target="_blank"
               className={cn(
                 buttonVariants({ variant: "ghost" }),
-                "text-primary px-0 hover:bg-primary transition-colors rounded-full p-2 size-8 bg-primary/80",
+                "text-primary px-0 hover:bg-primary transition-colors rounded-full p-2 size-8 bg-primary/80"
               )}
             >
               <social.icon className="size-6" />
@@ -25,24 +36,27 @@ export default function Home() {
             </Link>
           ))}
         </div>
-        <h1 className="text-3xl capitalize sm:text-5xl md:text-6xl lg:text-7xl">
-          A personal Blog template using{" "}
-          <span className="font-code text-yellow-300">Mdx</span> and{" "}
-          <span className="font-code text-primary">NextJs14</span>
-        </h1>
-        <p className="max-w-2xl leading-normal text-muted-foreground sm:text-xl sm:leading-8">
-          {siteConfig.description}
-        </p>
-        <div className="space-x-4">
+        <div className="w-full flex justify-center lg:justify-start">
           <Link
             href="/blog"
             className={cn(
               buttonVariants({ size: "lg", variant: "secondary" }),
-              "border",
+              "border"
             )}
           >
-            🎉My Blog
+            🎉 My Blog
           </Link>
+        </div>
+      </div>
+      <div className="flex justify-center">
+        <div className="relative aspect-video w-full overflow-hidden rounded-lg border bg-muted shadow-xl lg:aspect-square">
+          <Image
+            src="/images/welcome-image.jpg"
+            alt="Welcome"
+            fill
+            className="object-cover"
+            priority
+          />
         </div>
       </div>
     </section>

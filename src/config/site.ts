@@ -1,14 +1,13 @@
 import authorAvatar from "../../public/images/author/devbertskie.png";
 export const siteConfig = {
-  name: "Mdx Blog Template",
-  description:
-    "MDX Blog Template is a simple implementation of a markdown static blog. Built with Next.js 14 and velite js.",
-  author: "devbertskie",
+  name: "Home",
+  description: "",
+  author: "Nguyen Hoang Huu Tuan",
   authorImage: authorAvatar,
   social: {
-    github: "https://github.com/devbertskie",
-    twitter: "https://twitter.com",
-    facebook: "https://facebook.com",
+    github: "https://github.com/huutuansvip",
+    twitter: "https://x.com/BlazesssP13194",
+    facebook: "https://www.facebook.com/tuan.nguyen.428389",
   },
 };
 

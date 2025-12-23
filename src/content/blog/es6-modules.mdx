@@ -1,0 +1,48 @@
+---
+title: "Giải thích về ES6 Modules"
+description: "Hướng dẫn sử dụng câu lệnh import và export trong JavaScript để tổ chức code thành các module."
+image: "/images/blog/extends.webp"
+date: "2024-06-03"
+author: "Nguyen Hoang Huu Tuan"
+---
+
+# Giải thích về ES6 Modules
+
+Trước ES6, JavaScript không có hệ thống module tích hợp sẵn. Các lập trình viên phải dựa vào các thư viện như RequireJS hoặc CommonJS (Node.js). ES6 đã giới thiệu một hệ thống module tiêu chuẩn sử dụng `import` và `export`.
+
+## Exporting (Xuất)
+
+Bạn có thể xuất các hàm, đối tượng hoặc các kiểu dữ liệu nguyên thủy từ một tệp (module) nhất định.
+
+```javascript
+// math.js
+export const add = (a, b) => a + b;
+export const PI = 3.14159;
+```
+
+## Importing (Nhập)
+
+Sau đó bạn có thể nhập chúng vào một tệp khác.
+
+```javascript
+// app.js
+import { add, PI } from './math.js';
+
+console.log(add(2, 3));
+```
+
+## Default Exports (Xuất mặc định)
+
+Các module cũng có thể có một xuất mặc định (default export), rất hữu ích khi một module chỉ xuất một thứ duy nhất.
+
+```javascript
+// user.js
+export default class User {
+  constructor(name) {
+    this.name = name;
+  }
+}
+
+// other.js
+import User from './user.js';
+```

@@ -1,0 +1,50 @@
+---
+title: "Các phương pháp xử lý lỗi tốt nhất trong JavaScript"
+description: "Cách xử lý lỗi đúng đắn trong JavaScript sử dụng try...catch và các lớp lỗi tùy chỉnh."
+image: "/images/blog/any-considered.webp"
+date: "2024-06-09"
+author: "Nguyen Hoang Huu Tuan"
+---
+
+# Các phương pháp xử lý lỗi tốt nhất trong JavaScript
+
+Xử lý lỗi đúng đắn phân biệt một ứng dụng mạnh mẽ với một ứng dụng dễ vỡ.
+
+## Câu lệnh try...catch
+
+Câu lệnh `try...catch` đánh dấu một khối các câu lệnh để thử nghiệm và chỉ định phản ứng nếu một ngoại lệ được ném ra.
+
+```javascript
+try {
+  nonExistentFunction();
+} catch (error) {
+  console.error('Đã xảy ra lỗi:', error);
+}
+```
+
+## Khối finally
+
+Khối `finally` tạo ra một khối code chạy sau khi các khối `try` và `catch` đã hoàn thành, bất kể kết quả như thế nào.
+
+```javascript
+try {
+  // ...
+} catch (error) {
+  // ...
+} finally {
+  console.log('Dọn dẹp ở đây');
+}
+```
+
+## Ném lỗi (Throwing Errors)
+
+Bạn có thể tự ném ra các lỗi của mình bằng câu lệnh `throw`.
+
+```javascript
+function divide(a, b) {
+  if (b === 0) {
+    throw new Error('Chia cho số không');
+  }
+  return a / b;
+}
+```
