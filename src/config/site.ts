@@ -1,4 +1,4 @@
-import authorAvatar from "../../public/images/author/devbertskie.png";
+import authorAvatar from "../../public/images/author/tuan-avatar.jpg";
 export const siteConfig = {
   name: "Home",
   description: "",
